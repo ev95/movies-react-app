@@ -1,0 +1,67 @@
+.header {
+  background-color: #111;
+  padding: 7px;
+}
+
+.header > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: white;
+}
+
+.logo {
+  width: 150px;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.menu {
+  position: absolute;
+  background-color: #111111;
+  max-width: 500px;
+  right: 21%;
+  top: 65px;
+  border-radius: 5px;
+  border: 1px solid #cccccc6e;
+}
+
+.menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  row-gap: 10px;
+}
+
+.menu ul li {
+  flex-grow: 1;
+  width: 33%;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+  font-size: 18px;
+}
+.menu ul li a.active,
+.menu ul li a:hover {
+  color: #ff6b6b;
+}
+
+.geners-btn {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.menu-wrapper {
+  display: flex;
+  gap: 30px;
+}
