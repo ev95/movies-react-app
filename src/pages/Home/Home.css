@@ -1,0 +1,49 @@
+.hero {
+  position: relative;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 8;
+  background-color: #000000a6;
+}
+
+.hero-caption {
+  position: absolute;
+  z-index: 9;
+  top: 37%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.hero-caption h1 {
+  font-size: 70px;
+  color: #ddd9d9;
+  margin-bottom: 20px;
+}
+
+.hero-caption p {
+  font-size: 30px;
+  color: #ddd9d9;
+  margin: 0;
+}
+
+.popular-movies .slick-slide {
+  border: 2px solid #f54343a8;
+  margin: 0px 3px;
+  padding: 30px 20px;
+  border-radius: 5px;
+  background-color: #c9c9c94f;
+}
+.popular-movies .slick-dots {
+  bottom: 60px;
+}

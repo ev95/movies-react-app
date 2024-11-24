@@ -9,7 +9,7 @@ import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import SearchBar from "../SearchBar/SearchBar";
 
 function Header() {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
   const dispatch = useDispatch();
   const { geners } = useSelector((state: any) => state.genersState);
   useEffect(() => {
