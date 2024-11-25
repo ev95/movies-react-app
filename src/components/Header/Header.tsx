@@ -1,15 +1,15 @@
-import "./Header.css";
-import logo from "../../assets/images/logo.png";
-
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getgenersThunk } from "../../store/slices/genersSlice";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
+import { getgenersThunk } from "../../store/slices/genersSlice";
+import logo from "../../assets/images/logo.png";
 import SearchBar from "../SearchBar/SearchBar";
+import "./Header.css";
 
 function Header() {
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   const dispatch = useDispatch();
   const { geners } = useSelector((state: any) => state.genersState);
   useEffect(() => {
