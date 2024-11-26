@@ -1,27 +1,37 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { GenerType } from "../../types/types";
 import { API } from "../../api/api";
 
 
 
-
-export const getgenersThunk = createAsyncThunk('getgenersThunk', async() => {
-    const data = await API.getGeners();
-    return data.data;
+// Thunk creators
+export const getgenersThunk = createAsyncThunk('getgenersThunk', async( language: string ) => {
+    const data = await API.getGeners(language);
+    return data.data.genres;
 })
 
+// Type of Gener Slice
+type GenerSliceType = {
+    geners: Array<GenerType>
+}
+
+// Define Gener Slice Initial State
+const initialState : GenerSliceType = {
+    geners: []
+}
+
+// Create Geners Slice
 const generSlice = createSlice({
     name: 'generSlice',
-    initialState: {
-        geners: [],
-
-    },
+    initialState,
     reducers: {
 
     },
     extraReducers: (builder) => {
-        builder.addCase(getgenersThunk.fulfilled, (state, action) => {
+        builder.addCase(getgenersThunk.fulfilled, (state, action:PayloadAction<Array<GenerType>>) => {
             console.log(action.payload)
-            state.geners = action.payload.genres;
+            state.geners = action.payload;
         })
     }
 })
