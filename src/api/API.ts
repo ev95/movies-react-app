@@ -17,8 +17,8 @@ export const API = {
       `/genre/movie/list?api_key=${apiKey}&language=${language}`
     );
   },
-  getGenerById(id: number){
-    return axios_instance.get(`${id}`);
+  getGenerFIlmsById(genreId: string | undefined, language: string){
+    return axios_instance.get(`/discover/movie?api_key=${apiKey}&language=${language}&with_genres=${genreId}&page=${1}`);
   },
   getPopularMovies() {
     return axios_instance.get(`/movie/popular?language=en-US&page=1`);

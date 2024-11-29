@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
-import { getgenersThunk } from "../../store/slices/genersSlice";
+import {
+  getgenersThunk,
+  setCurrentGenre,
+} from "../../store/slices/genersSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import logo from "../../assets/images/logo.png";
 import SearchBar from "../SearchBar/SearchBar";
@@ -13,10 +16,16 @@ function Header() {
   const dispatch = useAppDispatch();
   const { geners } = useAppSelector((state) => state.genersState);
   const { language } = useAppSelector((state) => state.globalState);
-
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(getgenersThunk(language));
-  }, []);
+  }, [language]);
+
+  function selectGenre(genre: { id: number; name: string }) {
+    setShowMenu(false);
+    navigate(`/genre/${genre.id}`);
+    dispatch(setCurrentGenre(genre.name));
+  }
 
   return (
     <header className="header">
@@ -30,17 +39,19 @@ function Header() {
           <button
             className="geners-btn"
             onClick={() => setShowMenu(true)}
-            onBlur={() => setShowMenu(false)}
+            // onBlur={() => setShowMenu(false)}
           >
             Geners
           </button>
           {showMenu ? (
             <nav className="menu">
               <ul className="geners-list">
-                {geners?.map((gener: any) => {
+                {geners?.map((genre: any) => {
                   return (
-                    <li key={gener.id}>
-                      <NavLink to={`/geners/${gener.id}`}>{gener.name}</NavLink>
+                    <li key={genre.id}>
+                      <span onClick={() => selectGenre(genre)}>
+                        {genre.name}
+                      </span>
                     </li>
                   );
                 })}

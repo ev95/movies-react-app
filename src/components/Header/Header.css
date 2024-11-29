@@ -26,6 +26,7 @@
   max-width: 500px;
   right: 30%;
   top: 65px;
+  font-family: "Montserrat", sans-serif;
   border-radius: 5px;
   border: 1px solid #cccccc6e;
 }
@@ -42,14 +43,16 @@
   width: 33%;
 }
 
-.menu ul li a {
+.menu ul li span {
   text-decoration: none;
   color: white;
   transition: color 0.3s;
-  font-size: 18px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
 }
-.menu ul li a.active,
-.menu ul li a:hover {
+.menu ul li span.active,
+.menu ul li span:hover {
   color: #ff6b6b;
 }
 

@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import hero_image from "../../assets/images/hero-image.jpg";
+import hero_image from "../../assets/images/new-hero.jpg";
 import "./Home.css";
 
 export const Home = () => {
