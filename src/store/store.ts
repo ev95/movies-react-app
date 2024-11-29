@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import generSlice from './slices/genersSlice.ts'
 import globalSlice from './slices/globalSlice.ts'
+import filmsSlice from './slices/filmsSlice.ts'
 
 const store = configureStore({
   reducer: {
     globalState: globalSlice,
-    genersState: generSlice
+    genersState: generSlice,
+    filmsState: filmsSlice
   },
 });
 

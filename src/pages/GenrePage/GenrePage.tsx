@@ -3,8 +3,7 @@ import "./GenrePage.css";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { useEffect } from "react";
 import { getGenerFIlmsThunk } from "../../store/slices/genersSlice";
-
-const img_ulr = "https://image.tmdb.org/t/p/w300/";
+import Film from "../../components/Film/Film";
 
 const GenrePage = () => {
   const { id } = useParams();
@@ -17,24 +16,13 @@ const GenrePage = () => {
   useEffect(() => {
     dispatch(getGenerFIlmsThunk({ id, language }));
   }, [id, language]);
+
   return (
     <div className="container">
       <h1 className="genre-title">- {currentGenre} -</h1>
       <div className="genre-films-wrapper">
         {genreFilms.map((film) => {
-          return (
-            <div className="film">
-              <img src={`${img_ulr}${film.poster_path}`} alt={film.title} />
-              <h4>
-                {film.title.length >= 25
-                  ? `${film.title.slice(0, 25)} ...`
-                  : film.title}
-              </h4>
-              <span className="release-date">
-                {film.release_date.slice(0, 4)}
-              </span>
-            </div>
-          );
+          return <Film key={film.id} film={film} />;
         })}
       </div>
     </div>

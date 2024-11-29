@@ -7,7 +7,6 @@ const axios_instance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
 });
 
-// API
 
 
 
@@ -19,6 +18,9 @@ export const API = {
   },
   getGenerFIlmsById(genreId: string | undefined, language: string){
     return axios_instance.get(`/discover/movie?api_key=${apiKey}&language=${language}&with_genres=${genreId}&page=${1}`);
+  },
+  getFilmById(filmId: string, language: string){
+    return axios_instance.get(`/movie/${filmId}?api_key=${apiKey}&language=${language}`)
   },
   getPopularMovies() {
     return axios_instance.get(`/movie/popular?language=en-US&page=1`);
