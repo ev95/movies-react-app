@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import hero_image from "../../assets/images/new-hero.jpg";
 import "./Home.css";
 
-export const Home = () => {
+const Home = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -95,3 +95,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;

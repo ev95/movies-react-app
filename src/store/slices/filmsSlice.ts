@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { FilmType } from "../../types/types";
-import { API } from "../../api/api";
+import { API } from "../../api/API.ts";
 
 
 // Thunk creators
-export const getFIlmByIdThunk = createAsyncThunk('getFIlmById', 
+export const getFIlmByIdThunk = createAsyncThunk<FilmType, {id: string | undefined, language: string}>('getFIlmById', 
     async ({id, language}) => {
       const data =  await API.getFilmById(id, language);
       console.log(data.data)
@@ -28,7 +28,7 @@ const filmsSLice = createSlice({
     reducers: {
     },
     extraReducers: (builder) => {
-        builder.addCase(getFIlmById.fulfilled, (state, action) => {
+        builder.addCase(getFIlmByIdThunk.fulfilled, (state, action) => {
             state.currentFilm = action.payload
         })
     }

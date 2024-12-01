@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { FilmType, GenerType } from "../../types/types";
-import { API } from "../../api/api";
+import { API } from "../../api/API.ts";
 
 
 
@@ -12,7 +12,7 @@ export const getgenersThunk = createAsyncThunk<Array<GenerType>, string>('getgen
     return data.data.genres;
 })
 
-export const getGenerFIlmsThunk = createAsyncThunk<Array<FilmType>>('`getGenerFIlmsThunk`', 
+export const getGenerFIlmsThunk = createAsyncThunk<Array<FilmType>, {id: string | undefined, language: string}>('`getGenerFIlmsThunk`', 
     async( {id, language}) => {
         const data = await API.getGenerFIlmsById(id, language);
       

@@ -2,11 +2,6 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getgenersThunk } from "./genersSlice";
 
 // Thunk creators
-export const changeLanguageThunk = createAsyncThunk('changeLanguageThunk',
-    async ({language}, {dispatch})=>{
-        dispatch(getgenersThunk(language));
-    }
-)
 
 // Type of Global Slice
 type GlobalSliceType = {

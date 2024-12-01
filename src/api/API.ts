@@ -13,13 +13,13 @@ const axios_instance = axios.create({
 export const API = {
   getGeners(language: string) {
     return axios_instance.get<GetGenersType>(
-      `/genre/movie/list?api_key=${apiKey}&language=${language}`
+      `/genre/movie/list?api_key=${import.meta.env.VITE_APP_API_KEY}&language=${language}`
     );
   },
   getGenerFIlmsById(genreId: string | undefined, language: string){
     return axios_instance.get(`/discover/movie?api_key=${apiKey}&language=${language}&with_genres=${genreId}&page=${1}`);
   },
-  getFilmById(filmId: string, language: string){
+  getFilmById(filmId: string | undefined, language: string){
     return axios_instance.get(`/movie/${filmId}?api_key=${apiKey}&language=${language}`)
   },
   getPopularMovies() {

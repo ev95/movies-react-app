@@ -12,23 +12,3 @@
   margin: 30px 0;
   font-family: "Montserrat", sans-serif;
 }
-
-.film {
-  width: 230px;
-}
-
-.film img {
-  width: 230px;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 7px;
-}
-
-.film h4 {
-  color: #fff;
-  margin: 10px 0;
-}
-
-.film .release-date {
-  color: #7f7f7f;
-}
